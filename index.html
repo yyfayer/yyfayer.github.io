@@ -164,6 +164,151 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/CSS%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/CSS%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">CSS笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:35:49" itemprop="dateModified" datetime="2023-07-16T15:35:49+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="css-background属性"><a href="#css-background属性" class="headerlink" title="css background属性"></a>css background属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="center">值</th>
+<th align="center">标注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background-iamge</td>
+<td align="center">url()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td align="center">no-repeat&#x2F;repeat*&#x2F;repeat-x&#x2F;repeat-y</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td align="center">scroll&#x2F;fixed &#x2F;inherit</td>
+<td align="center">背景图像会随着页其余部分的滚动而移动:当页面的其余部分滚动时背景图像不会移动:继承父元素<code>background-attachment</code>的值</td>
+</tr>
+<tr>
+<td>background-size</td>
+<td align="center">auto auto&#x2F;100% 100%&#x2F;contain&#x2F;cover</td>
+<td align="center">设置背景图像的宽高，如果只设置一个值，则第二个值会被设置为 “auto”：以父元素的百分比来设置背景图像的宽度和高度：把背景图像扩展至足够大，以使背景图像完全覆盖背景区域：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background</span> : [background-color] [background-image] [background-repeat] [background-attachment] [background-position] / [background-size] [background-origin] [background-clip]</span><br></pre></td></tr></table></figure>
+
+<h2 id="盒子水平居中的方法"><a href="#盒子水平居中的方法" class="headerlink" title="盒子水平居中的方法"></a>盒子水平居中的方法</h2><p>定位法：子绝父相 <code>left:50%;transform:translate(-50%);</code><br>flex布局：父元素<code>display:flex;</code>子元素<code>justify-content:center;</code>  </p>
+<h2 id="大小写转换效果"><a href="#大小写转换效果" class="headerlink" title="大小写转换效果"></a>大小写转换效果</h2><p>text-transform:uppercase;</p>
+<h2 id="斜体效果"><a href="#斜体效果" class="headerlink" title="斜体效果"></a>斜体效果</h2><p>font-style:italic;  </p>
+<h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
+<h3 id="基础知识（前言）"><a href="#基础知识（前言）" class="headerlink" title="基础知识（前言）"></a>基础知识（前言）</h3><ul>
+<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
+</li>
+<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
+</li>
+<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png" alt="1">-&gt;F5刷新</p>
+</li>
+<li><p>百分比布局：宽度自适应，高度固定</p>
+</li>
+<li><p>查看兼容性的网站：caniuse.com</p>
+</li>
+<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
+<hr /></li>
+</ul>
+<h3 id="flex布局实现"><a href="#flex布局实现" class="headerlink" title="flex布局实现"></a>flex布局实现</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="2"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="3"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="4"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
+<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
+<ul>
+<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
+</ul>
+<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
+<ul>
+<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
+<ul>
+<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
+<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/JS%E9%AB%98%E7%BA%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -333,382 +478,6 @@
 
 
 
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/CSS%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yangwanwan">
-      <meta itemprop="description" content="Yangwanwan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangwanwan‘s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/30/CSS%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">CSS笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-16 15:35:49" itemprop="dateModified" datetime="2023-07-16T15:35:49+08:00">2023-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="css-background属性"><a href="#css-background属性" class="headerlink" title="css background属性"></a>css background属性</h2><table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="center">值</th>
-<th align="center">标注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>background-iamge</td>
-<td align="center">url()</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td>background-repeat</td>
-<td align="center">no-repeat&#x2F;repeat*&#x2F;repeat-x&#x2F;repeat-y</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td>background-attachment</td>
-<td align="center">scroll&#x2F;fixed &#x2F;inherit</td>
-<td align="center">背景图像会随着页其余部分的滚动而移动:当页面的其余部分滚动时背景图像不会移动:继承父元素<code>background-attachment</code>的值</td>
-</tr>
-<tr>
-<td>background-size</td>
-<td align="center">auto auto&#x2F;100% 100%&#x2F;contain&#x2F;cover</td>
-<td align="center">设置背景图像的宽高，如果只设置一个值，则第二个值会被设置为 “auto”：以父元素的百分比来设置背景图像的宽度和高度：把背景图像扩展至足够大，以使背景图像完全覆盖背景区域：把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。</td>
-</tr>
-</tbody></table>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background</span> : [background-color] [background-image] [background-repeat] [background-attachment] [background-position] / [background-size] [background-origin] [background-clip]</span><br></pre></td></tr></table></figure>
-
-<h2 id="盒子水平居中的方法"><a href="#盒子水平居中的方法" class="headerlink" title="盒子水平居中的方法"></a>盒子水平居中的方法</h2><p>定位法：子绝父相 <code>left:50%;transform:translate(-50%);</code><br>flex布局：父元素<code>display:flex;</code>子元素<code>justify-content:center;</code>  </p>
-<h2 id="大小写转换效果"><a href="#大小写转换效果" class="headerlink" title="大小写转换效果"></a>大小写转换效果</h2><p>text-transform:uppercase;</p>
-<h2 id="斜体效果"><a href="#斜体效果" class="headerlink" title="斜体效果"></a>斜体效果</h2><p>font-style:italic;  </p>
-<h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
-<h3 id="基础知识（前言）"><a href="#基础知识（前言）" class="headerlink" title="基础知识（前言）"></a>基础知识（前言）</h3><ul>
-<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
-</li>
-<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
-</li>
-<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png" alt="1">-&gt;F5刷新</p>
-</li>
-<li><p>百分比布局：宽度自适应，高度固定</p>
-</li>
-<li><p>查看兼容性的网站：caniuse.com</p>
-</li>
-<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
-<hr /></li>
-</ul>
-<h3 id="flex布局实现"><a href="#flex布局实现" class="headerlink" title="flex布局实现"></a>flex布局实现</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="2"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="3"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="4"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
-<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
-<ul>
-<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
-</ul>
-<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
-<ul>
-<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
-<ul>
-<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
-<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yangwanwan">
-      <meta itemprop="description" content="Yangwanwan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangwanwan‘s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/30/flex%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">flex布局</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-16 15:38:43" itemprop="dateModified" datetime="2023-07-16T15:38:43+08:00">2023-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
-<h4 id="基础知识（前言"><a href="#基础知识（前言" class="headerlink" title="基础知识（前言)"></a>基础知识（前言)</h4><ul>
-<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
-</li>
-<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
-</li>
-<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png">-&gt;F5刷新    </p>
-</li>
-<li><p>百分比布局：宽度自适应，高度固定</p>
-</li>
-<li><p>查看兼容性的网站：caniuse.com</p>
-</li>
-<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
-<hr></li>
-</ul>
-<h3 id="flex布局实现："><a href="#flex布局实现：" class="headerlink" title="flex布局实现："></a>flex布局实现：</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="1"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="2"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="3"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
-<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
-<ul>
-<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
-</ul>
-<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
-<ul>
-<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
-<ul>
-<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
-<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/git%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yangwanwan">
-      <meta itemprop="description" content="Yangwanwan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yangwanwan‘s Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/30/git%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">git</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-16 15:39:42" itemprop="dateModified" datetime="2023-07-16T15:39:42+08:00">2023-07-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="文件版本保存缺点"><a href="#文件版本保存缺点" class="headerlink" title="文件版本保存缺点"></a>文件版本保存缺点</h2><ul>
-<li>操作麻烦-每次需要复制粘贴重命名  </li>
-<li>明明不规范-无法通过文件名知道具体做了那些修改  </li>
-<li>容易丢失-如果硬盘故障或不小心删除，文件很容易丢失</li>
-<li>写作困难-需要手动合并每个人对项目文件的修改，合并时极易出错</li>
-</ul>
-<h2 id="版本控制软件"><a href="#版本控制软件" class="headerlink" title="版本控制软件"></a>版本控制软件</h2><p>1.概念，记录文件变化，以便将来查阅特定版本修订情况的系统<br>2.通俗理解：把手工管理文件版本的方式，改为由软件管理文件的版本，这个负责管理文件版本的软件，叫做版本控制软件。</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>操作简便-只需记几组简单的终端命令</li>
-<li>易于对比</li>
-<li>易于回溯</li>
-<li>不易丢失</li>
-<li>协作方便</li>
-</ul>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>本地版本控制系统（单机运行）、集中化版本控制系统（多人开发、性能差，用户体验不好）、分布式版本控制系统（多人开发、性能优秀、用户体验好）</p>
-<h3 id="集中化版本控制系统（SVN）"><a href="#集中化版本控制系统（SVN）" class="headerlink" title="集中化版本控制系统（SVN）"></a>集中化版本控制系统（SVN）</h3><p>特点：基于服务器、客户端的运行模式  </p>
-<ol>
-<li>服务器保存文件的所有更新记录</li>
-<li>客户端只保留最新的文件版本<br>优点：联网运行、支持多人协作<br>缺点：<br>1.不支持离线提交版本更新<br>2.中心服务器崩溃后，所有人无法正常工作<br>3.版本数据库故障后，所有历史更新记录会丢失</li>
-</ol>
-<h3 id="分布式版本控制系统（git）"><a href="#分布式版本控制系统（git）" class="headerlink" title="分布式版本控制系统（git）"></a>分布式版本控制系统（git）</h3><p>特点：基于服务器、客户端的运行模式</p>
-<ol>
-<li>服务器保存文件的所有更新版本</li>
-<li>客户端是服务器的完整备份，并不是只保留文件的最新版本</li>
-</ol>
-<p>优点：<br>1.联网运行，支持多人协作开发<br>2.客户端断网后支持离线本地提交版本更新<br>3.服务器故障或损坏后，可使用任何一个客户端的备份进行恢复。</p>
-<h3 id="git的基本操作"><a href="#git的基本操作" class="headerlink" title="git的基本操作"></a>git的基本操作</h3><p>1.获取git仓库的两种方式：</p>
-<ul>
-<li>将尚未进行版本控制的本地目录转换为git仓库</li>
-<li>从其他服务器克隆一个已存在的git仓库</li>
-</ul>
-<p>2.在现有目录中初始化仓库<br>文件夹进入终端命令行，复制命令上传文件<br>3.查看文件工作区状态命令 git status，精简输出命令 git status -s<br>4.跟踪新文件（添加到暂存区）：git add <i>filename</i><br>5.提交更新git commit -m “commit message”<br>6.撤销修改git checkout – index.html，原理：用git仓库中的旧版本覆盖修改的文件，不可撤销，危险性较高，慎重操作<br>7.取消暂存的文件：git reset HEAD <i>filename</i><br>8.跳过暂存区，git commit -a -m “commit message”，执行这个命令不再需要执行 git add 命令<br>9.移除文件：从git仓库和工作区同时移除文件 git rm -f <i>filename</i><br>只从git仓库中移除文件 git rm –cached <i>filename</i><br>10.忽略文件：创建.gitignore配置文件，列出要忽略的文件的匹配模式</p>
-<ul>
-<li>以#开头为注释</li>
-<li>以&#x2F;结尾为目录</li>
-<li>以&#x2F;开头防止递归<img src="/mdimg/2023-07-13-11-45-26.png"></li>
-<li>以！开头表示取反</li>
-<li>可以使用glob模式（简化的正则表达式）进行文件和文件夹的匹配<ol>
-<li>* 匹配零个或多个任意字符</li>
-<li>[abc] 匹配任何一个列在方括号中的字符（匹配一个a&#x2F;一个b&#x2F;一个c）</li>
-<li>？ 只匹配一个任意字符</li>
-<li>0-9 匹配两个字符范围内的都可以匹配到</li>
-<li>a&#x2F;**&#x2F;z 表示匹配任意中间目录 a&#x2F;z&#x2F; ,a&#x2F;sddsfd&#x2F;s&#x2F;z&#x2F; ,a&#x2F;b&#x2F;z</li>
-</ol>
-</li>
-</ul>
-<p>11.查看历史提交信息：<img src="/mdimg/2023-07-13-11-48-45.png"> <hr/>实际应用<img src="/mdimg/2023-07-13-11-50-31.png"><br>12.<br>回退到指定的版本<br>git reset –hard commit ID<br>commit id 获取方式git log –pretty&#x3D;oneline，示例如图。<br><img src="/mdimg/2023-07-13-11-54-16.png"></p>
 
       
     </div>
@@ -1080,6 +849,237 @@
 <li>回到顶部</li>
 </ul>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="元素的类型"><a href="#元素的类型" class="headerlink" title="元素的类型"></a>元素的类型</h3><p><img src="/media/1497169919418.png" alt="1497169919418"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/git%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/git%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:39:42" itemprop="dateModified" datetime="2023-07-16T15:39:42+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="文件版本保存缺点"><a href="#文件版本保存缺点" class="headerlink" title="文件版本保存缺点"></a>文件版本保存缺点</h2><ul>
+<li>操作麻烦-每次需要复制粘贴重命名  </li>
+<li>明明不规范-无法通过文件名知道具体做了那些修改  </li>
+<li>容易丢失-如果硬盘故障或不小心删除，文件很容易丢失</li>
+<li>写作困难-需要手动合并每个人对项目文件的修改，合并时极易出错</li>
+</ul>
+<h2 id="版本控制软件"><a href="#版本控制软件" class="headerlink" title="版本控制软件"></a>版本控制软件</h2><p>1.概念，记录文件变化，以便将来查阅特定版本修订情况的系统<br>2.通俗理解：把手工管理文件版本的方式，改为由软件管理文件的版本，这个负责管理文件版本的软件，叫做版本控制软件。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>操作简便-只需记几组简单的终端命令</li>
+<li>易于对比</li>
+<li>易于回溯</li>
+<li>不易丢失</li>
+<li>协作方便</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>本地版本控制系统（单机运行）、集中化版本控制系统（多人开发、性能差，用户体验不好）、分布式版本控制系统（多人开发、性能优秀、用户体验好）</p>
+<h3 id="集中化版本控制系统（SVN）"><a href="#集中化版本控制系统（SVN）" class="headerlink" title="集中化版本控制系统（SVN）"></a>集中化版本控制系统（SVN）</h3><p>特点：基于服务器、客户端的运行模式  </p>
+<ol>
+<li>服务器保存文件的所有更新记录</li>
+<li>客户端只保留最新的文件版本<br>优点：联网运行、支持多人协作<br>缺点：<br>1.不支持离线提交版本更新<br>2.中心服务器崩溃后，所有人无法正常工作<br>3.版本数据库故障后，所有历史更新记录会丢失</li>
+</ol>
+<h3 id="分布式版本控制系统（git）"><a href="#分布式版本控制系统（git）" class="headerlink" title="分布式版本控制系统（git）"></a>分布式版本控制系统（git）</h3><p>特点：基于服务器、客户端的运行模式</p>
+<ol>
+<li>服务器保存文件的所有更新版本</li>
+<li>客户端是服务器的完整备份，并不是只保留文件的最新版本</li>
+</ol>
+<p>优点：<br>1.联网运行，支持多人协作开发<br>2.客户端断网后支持离线本地提交版本更新<br>3.服务器故障或损坏后，可使用任何一个客户端的备份进行恢复。</p>
+<h3 id="git的基本操作"><a href="#git的基本操作" class="headerlink" title="git的基本操作"></a>git的基本操作</h3><p>1.获取git仓库的两种方式：</p>
+<ul>
+<li>将尚未进行版本控制的本地目录转换为git仓库</li>
+<li>从其他服务器克隆一个已存在的git仓库</li>
+</ul>
+<p>2.在现有目录中初始化仓库<br>文件夹进入终端命令行，复制命令上传文件<br>3.查看文件工作区状态命令 git status，精简输出命令 git status -s<br>4.跟踪新文件（添加到暂存区）：git add <i>filename</i><br>5.提交更新git commit -m “commit message”<br>6.撤销修改git checkout – index.html，原理：用git仓库中的旧版本覆盖修改的文件，不可撤销，危险性较高，慎重操作<br>7.取消暂存的文件：git reset HEAD <i>filename</i><br>8.跳过暂存区，git commit -a -m “commit message”，执行这个命令不再需要执行 git add 命令<br>9.移除文件：从git仓库和工作区同时移除文件 git rm -f <i>filename</i><br>只从git仓库中移除文件 git rm –cached <i>filename</i><br>10.忽略文件：创建.gitignore配置文件，列出要忽略的文件的匹配模式</p>
+<ul>
+<li>以#开头为注释</li>
+<li>以&#x2F;结尾为目录</li>
+<li>以&#x2F;开头防止递归<img src="/mdimg/2023-07-13-11-45-26.png"></li>
+<li>以！开头表示取反</li>
+<li>可以使用glob模式（简化的正则表达式）进行文件和文件夹的匹配<ol>
+<li>* 匹配零个或多个任意字符</li>
+<li>[abc] 匹配任何一个列在方括号中的字符（匹配一个a&#x2F;一个b&#x2F;一个c）</li>
+<li>？ 只匹配一个任意字符</li>
+<li>0-9 匹配两个字符范围内的都可以匹配到</li>
+<li>a&#x2F;**&#x2F;z 表示匹配任意中间目录 a&#x2F;z&#x2F; ,a&#x2F;sddsfd&#x2F;s&#x2F;z&#x2F; ,a&#x2F;b&#x2F;z</li>
+</ol>
+</li>
+</ul>
+<p>11.查看历史提交信息：<img src="/mdimg/2023-07-13-11-48-45.png"> <hr/>实际应用<img src="/mdimg/2023-07-13-11-50-31.png"><br>12.<br>回退到指定的版本<br>git reset –hard commit ID<br>commit id 获取方式git log –pretty&#x3D;oneline，示例如图。<br><img src="/mdimg/2023-07-13-11-54-16.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/flex%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">flex布局</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:38:43" itemprop="dateModified" datetime="2023-07-16T15:38:43+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
+<h4 id="基础知识（前言"><a href="#基础知识（前言" class="headerlink" title="基础知识（前言)"></a>基础知识（前言)</h4><ul>
+<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
+</li>
+<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
+</li>
+<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png">-&gt;F5刷新    </p>
+</li>
+<li><p>百分比布局：宽度自适应，高度固定</p>
+</li>
+<li><p>查看兼容性的网站：caniuse.com</p>
+</li>
+<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
+<hr></li>
+</ul>
+<h3 id="flex布局实现："><a href="#flex布局实现：" class="headerlink" title="flex布局实现："></a>flex布局实现：</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="1"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="2"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="3"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
+<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
+<ul>
+<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
+</ul>
+<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
+<ul>
+<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
+<ul>
+<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
+<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
 
       
     </div>
