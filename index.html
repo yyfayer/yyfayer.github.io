@@ -178,7 +178,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/06/30/CSS%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2023/06/30/CSS%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">CSS笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -187,10 +187,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-06-30 22:33:20 / Modified: 22:34:18" itemprop="dateCreated datePublished" datetime="2023-06-30T22:33:20+08:00">2023-06-30</time>
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 11:52:50" itemprop="dateModified" datetime="2023-07-16T11:52:50+08:00">2023-07-16</time>
+              </span>
 
           
 
@@ -203,7 +209,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CSS笔记"><a href="#CSS笔记" class="headerlink" title="CSS笔记"></a>CSS笔记</h1><h2 id="css-background属性"><a href="#css-background属性" class="headerlink" title="css background属性"></a>css background属性</h2><table>
+          <h2 id="css-background属性"><a href="#css-background属性" class="headerlink" title="css background属性"></a>css background属性</h2><table>
 <thead>
 <tr>
 <th>属性</th>
@@ -238,38 +244,39 @@
 <h2 id="大小写转换效果"><a href="#大小写转换效果" class="headerlink" title="大小写转换效果"></a>大小写转换效果</h2><p>text-transform:uppercase;</p>
 <h2 id="斜体效果"><a href="#斜体效果" class="headerlink" title="斜体效果"></a>斜体效果</h2><p>font-style:italic;  </p>
 <h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
-<p>####基础知识（前言）：  </p>
-<ul>
+<h3 id="基础知识（前言）"><a href="#基础知识（前言）" class="headerlink" title="基础知识（前言）"></a>基础知识（前言）</h3><ul>
 <li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
 </li>
 <li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
 </li>
-<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png">-&gt;F5刷新    </p>
+<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png" alt="1">-&gt;F5刷新</p>
 </li>
 <li><p>百分比布局：宽度自适应，高度固定</p>
 </li>
 <li><p>查看兼容性的网站：caniuse.com</p>
 </li>
 <li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
-<hr></li>
+<hr /></li>
 </ul>
-<p>####flex布局实现：<br>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
+<h3 id="flex布局实现"><a href="#flex布局实现" class="headerlink" title="flex布局实现"></a>flex布局实现</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="2"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="3"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="4"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
 <p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
 <ul>
 <li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
 </ul>
 <p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
 <ul>
-<li><p>子元素不设置高度，则item的高默认与container一样，即stretch效果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#container&#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            display: flex;</span><br><span class="line">        &#125;</span><br><span class="line">.item&#123;</span><br><span class="line">            background-color: #ccc;</span><br><span class="line">            width: 10px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png"></p>
-</li>
-<li><p>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#container&#123;</span><br><span class="line">    background-color: pink;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.item&#123;</span><br><span class="line">    background-color: #ccc;</span><br><span class="line">    width: 10px;</span><br><span class="line">    align-self: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png"></p>
-</li>
+<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
 </ul>
-<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
+<ul>
+<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
+<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
 
       
     </div>
