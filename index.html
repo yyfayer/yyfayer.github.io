@@ -164,6 +164,194 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/JS%E9%AB%98%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/JS%E9%AB%98%E7%BA%A7/" class="post-title-link" itemprop="url">JS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:40:24" itemprop="dateModified" datetime="2023-07-16T15:40:24+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><blockquote>
+<p>了解函数中 this 在不同场景下的默认值，动态指定函数 this 的值，提升代码封装的灵活度。</p>
+</blockquote>
+<ul>
+<li>能够区分不同场景下函数中 <code>this</code> 的默认值</li>
+<li>知道箭头函数的普通函数的区别，掌握箭头函数的使用</li>
+<li>能够动指定函数中 <code>this</code> 的值</li>
+<li>了解基于类的面向对象的实现语法</li>
+</ul>
+<h3 id="一、this"><a href="#一、this" class="headerlink" title="一、this"></a>一、this</h3><blockquote>
+<p>了解函数中 this 在不同场景下的默认值，知道动态指定函数 this 值的方法。</p>
+</blockquote>
+<h4 id="1-1-默认值"><a href="#1-1-默认值" class="headerlink" title="1.1 默认值"></a>1.1 默认值</h4><p><code>this</code> 是 JavaScript 最具“魅惑”的知识点，不同的应用场合 <code>this</code> 的取值可能会有意想不到的结果，在此我们对以往学习过的关于【 <code>this</code> 默认的取值】情况进行归纳和总结。</p>
+<h5 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h5><p><strong>普通函数</strong>的调用方式决定了 <code>this</code> 的值，即【谁调用 <code>this</code> 的值指向谁】，如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">sayHi</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 函数表达式</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> sayHello = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 函数的调用方式决定了 this 的值</span></span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">sayHi</span>(); <span class="comment">// window</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="title function_">sayHi</span>();</span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript"> 	<span class="comment">// 普通对象</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> user = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">walk</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 动态为 user 添加方法</span></span></span><br><span class="line"><span class="language-javascript">  user.<span class="property">sayHi</span> = sayHi;</span></span><br><span class="line"><span class="language-javascript">  uesr.<span class="property">sayHello</span> = sayHello;</span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 函数调用方式，决定了 this 的值</span></span></span><br><span class="line"><span class="language-javascript">  user.<span class="title function_">sayHi</span>();</span></span><br><span class="line"><span class="language-javascript">  user.<span class="title function_">sayHello</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注： 普通函数没有明确调用者时 <code>this</code> 值为 <code>window</code>，严格模式下没有调用者时 <code>this</code> 的值为 <code>undefined</code>。</p>
+<h5 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h5><p><strong>箭头函数</strong>中的 <code>this</code> 与普通函数完全不同，也不受调用方式的影响，事实上箭头函数中并不存在 <code>this</code> ！箭头函数中访问的 <code>this</code> 不过是箭头函数所在作用域的 <code>this</code> 变量。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// 此处为 window</span></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 箭头函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> sayHi = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// 该箭头函数中的 this 为函数声明环境中 this 一致</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通对象</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> user = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 该箭头函数中的 this 为函数声明环境中 this 一致</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">walk</span>: <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="attr">sleep</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> str = <span class="string">&#x27;hello&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params"></span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(str);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// 该箭头函数中的 this 与 sleep 中的 this 一致</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 调用箭头函数</span></span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">fn</span>();</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 动态添加方法</span></span></span><br><span class="line"><span class="language-javascript">  user.<span class="property">sayHi</span> = sayHi;</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 函数调用</span></span></span><br><span class="line"><span class="language-javascript">  user.<span class="title function_">sayHi</span>();</span></span><br><span class="line"><span class="language-javascript">  user.<span class="title function_">sleep</span>();</span></span><br><span class="line"><span class="language-javascript">  user.<span class="title function_">walk</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在开发中【使用箭头函数前需要考虑函数中 <code>this</code> 的值】，<strong>事件回调函数</strong>使用箭头函数时，<code>this</code> 为全局的 <code>window</code>，因此DOM事件回调函数不推荐使用箭头函数，如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// DOM 节点</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.btn&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 箭头函数 此时 this 指向了 window</span></span></span><br><span class="line"><span class="language-javascript">  btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通函数 此时 this 指向了 DOM 对象</span></span></span><br><span class="line"><span class="language-javascript">  btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>同样由于箭头函数 <code>this</code> 的原因，<strong>基于原型的面向对象也不推荐采用箭头函数</strong>，如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 原型对像上添加了箭头函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">walk</span> = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;人都要走路...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// widow</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span></span><br><span class="line"><span class="language-javascript">  p1.<span class="title function_">walk</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-定义值"><a href="#1-2-定义值" class="headerlink" title="1.2 定义值"></a>1.2 定义值</h4><p>以上归纳了普通函数和箭头函数中关于 <code>this</code> 默认值的情形，不仅如此 JavaScript 中还允许指定函数中 <code>this</code> 的指向，有 3 个方法可以动态指定普通函数中 <code>this</code> 的指向：</p>
+<h5 id="call"><a href="#call" class="headerlink" title="call"></a>call</h5><p>使用 <code>call</code> 方法调用函数，同时指定函数中 <code>this</code> 的值，使用方法如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">sayHi</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> user = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">age</span>: <span class="number">18</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> student = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小红&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">age</span>: <span class="number">16</span>，</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用函数并指定 this 的值</span></span></span><br><span class="line"><span class="language-javascript">  sayHi.<span class="title function_">call</span>(user); <span class="comment">// this 值为 user</span></span></span><br><span class="line"><span class="language-javascript">  sayHi.<span class="title function_">call</span>(student); <span class="comment">// this 值为 student</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 求和函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">counter</span>(<span class="params">x, y</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> x + y;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用 counter 函数，并传入参数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> result = counter.<span class="title function_">call</span>(<span class="literal">null</span>, <span class="number">5</span>, <span class="number">10</span>);</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ol>
+<li><code>call</code> 方法能够在调用函数的同时指定 <code>this</code> 的值</li>
+<li>使用 <code>call</code> 方法调用函数时，第1个参数为 <code>this</code> 指定的值</li>
+<li><code>call</code> 方法的其余参数会依次自动传入函数做为函数的参数</li>
+</ol>
+<h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h5><p>使用 <code>call</code> 方法<strong>调用函数</strong>，同时指定函数中 <code>this</code> 的值，使用方法如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">sayHi</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> user = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">age</span>: <span class="number">18</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> student = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小红&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">age</span>: <span class="number">16</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用函数并指定 this 的值</span></span></span><br><span class="line"><span class="language-javascript">  sayHi.<span class="title function_">apply</span>(user); <span class="comment">// this 值为 user</span></span></span><br><span class="line"><span class="language-javascript">  sayHi.<span class="title function_">apply</span>(student); <span class="comment">// this 值为 student</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 求和函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">counter</span>(<span class="params">x, y</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> x + y;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用 counter 函数，并传入参数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> result = counter.<span class="title function_">apply</span>(<span class="literal">null</span>, [<span class="number">5</span>, <span class="number">10</span>]);</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ol>
+<li><code>apply</code> 方法能够在调用函数的同时指定 <code>this</code> 的值</li>
+<li>使用 <code>apply</code> 方法调用函数时，第1个参数为 <code>this</code> 指定的值</li>
+<li><code>apply</code> 方法第2个参数为数组，数组的单元值依次自动传入函数做为函数的参数</li>
+</ol>
+<h5 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h5><p><code>bind</code> 方法并<strong>不会调用函数</strong>，而是创建一个指定了 <code>this</code> 值的新函数，使用方法如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 普通函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">sayHi</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> user = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">age</span>: <span class="number">18</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用 bind 指定 this 的值</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> sayHello = sayHi.<span class="title function_">bind</span>(user);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 调用使用 bind 创建的新函数</span></span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">sayHello</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注：<code>bind</code> 方法创建新的函数，与原函数的唯一的变化是改变了 <code>this</code> 的值。</p>
+<p><strong>改变this三个方法总结：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">call：fun.call(this，arg1, arg2,......)</span><br><span class="line">apply：fun.apply(this, [arg1, arg2,......])</span><br><span class="line">bind：fun.bind(this, arg1, arg2,......)</span><br><span class="line"></span><br><span class="line">相同点：</span><br><span class="line">	都可以用来改变this指向，第一个参数都是this指向的对象</span><br><span class="line">区别：</span><br><span class="line">	call和apply：都会使函数执行，但是参数不同</span><br><span class="line">	bind：不会使函数执行，参数同call</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、class"><a href="#二、class" class="headerlink" title="二、class"></a>二、class</h3><blockquote>
+<p>了解 JavaScript 中基于 class 语法的面向对象编程，为后续课程中的应用做好铺垫。</p>
+</blockquote>
+<p>传统面向对象的编程序语言都是【类】的概念，对象都是由类创建出来，然而早期 JavaScript 中是没有类的，面向对象大多都是基于构造函数和原型实现的，但是 ECMAScript 6  规范开始增加了【类】相关的语法，使得 JavaScript 中的面向对象实现方式更加标准。</p>
+<h4 id="2-1-封装"><a href="#2-1-封装" class="headerlink" title="2.1 封装"></a>2.1 封装</h4><p>class（类）是 ECMAScript 6 中新增的关键字，专门用于创建类的，类可被用于实现逻辑的封装。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 创建类</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="comment">// 此处编写封装逻辑</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 实例化</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p1);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实例成员"><a href="#实例成员" class="headerlink" title="实例成员"></a>实例成员</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 创建类</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 实例属性</span></span></span><br><span class="line"><span class="language-javascript">    name = <span class="string">&#x27;小明&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 实例方法</span></span></span><br><span class="line"><span class="language-javascript">    sleep () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;sleeping...&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 实例化</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span></span><br><span class="line"><span class="language-javascript">  p1.<span class="title function_">sayHi</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><p>关键字 <code>class</code> 封装了所有的实例属性和方法</p>
+</li>
+<li><p>类中封装的并不是变量和函数，因此不能使用关键字 <code>let</code>、<code>const</code> 或 <code>var</code></p>
+</li>
+</ul>
+<h5 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 创建类</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 静态属性</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">static</span> version = <span class="string">&#x27;1.0.0&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 静态方法</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">static</span> getVersion = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">version</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 静态方法直接访问</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property">version</span>);</span></span><br><span class="line"><span class="language-javascript">  <span class="title class_">Person</span>.<span class="title function_">getVersion</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><code>static</code> 关键字用于声明静态属性和方法</li>
+<li>静态属性和方法直接通过类名进行访问</li>
+</ul>
+<h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><p>创建类时在类的内部有一个特定的方法 <code>constructor</code> ，该方法会在类被实例化时自动被调用，常被用于处理一些初始化的操作。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 实例化时 立即执行</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 构造函数、构造方法、构造器</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">constructor</span> (name, age) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">name</span> = name;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">age</span> = age;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="comment">// 实例方法</span></span></span><br><span class="line"><span class="language-javascript">    walk () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;正在走路...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 实例化</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;小明&#x27;</span>, <span class="number">18</span>);</span></span><br><span class="line"><span class="language-javascript">  p1.<span class="title function_">walk</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><code>constructor</code> 是类中固定的方法名</li>
+<li><code>constructor</code> 方法在实例化时立即执行</li>
+<li><code>constructor</code> 方法接收实例化时传入的参数</li>
+<li><code>constructor</code> 并非是类中必须要存在的方法</li>
+</ul>
+<h4 id="2-2-继承"><a href="#2-2-继承" class="headerlink" title="2.2 继承"></a>2.2 继承</h4><h5 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h5><p><code>extends</code> 是 ECMAScript 6 中实现继承的简洁语法，代码如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 父类的属性</span></span></span><br><span class="line"><span class="language-javascript">    legs = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">    arms = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">    eyes = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// 父类的方法</span></span></span><br><span class="line"><span class="language-javascript">    walk () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;人类都会走路...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// 父类的方法</span></span></span><br><span class="line"><span class="language-javascript">    sleep () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;人都得要睡觉...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// Chinese 继承了 Person 的所有特征</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Chinese</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span> &#123;&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 实例化</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> c1 = <span class="keyword">new</span> <span class="title class_">Chinese</span>();</span></span><br><span class="line"><span class="language-javascript">  c1.<span class="title function_">walk</span>();</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如上代码所示 <code>extends</code> 是专门用于实现继承的语法关键字，<code>Person</code> 称为父类、<code>Chinese</code> 称为子类。</p>
+<h5 id="super"><a href="#super" class="headerlink" title="super"></a>super</h5><p>在继承的过程中子类中 <code>constructor</code> 中必须调 <code>super</code> 函数，否则会有语法错误，如下代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 构造函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">constructor</span> (name, age) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">name</span> = name;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">age</span> = age;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 父类的属性</span></span></span><br><span class="line"><span class="language-javascript">    legs = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">  	arms = <span class="number">2</span>;</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">    walk () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;人类都会走路...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 子类 English 继承了父类 Person</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">class</span> <span class="title class_">English</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 子类的构造函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">constructor</span> (name, age) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">super</span>(name, age);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 子类的属性</span></span></span><br><span class="line"><span class="language-javascript">    skin = <span class="string">&#x27;white&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">  	language = <span class="string">&#x27;英文&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 实例化</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">let</span> e1 = <span class="keyword">new</span> <span class="title class_">English</span>(<span class="string">&#x27;jack&#x27;</span>, <span class="number">18</span>);</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e1.<span class="property">name</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>子类构造函数中的 <code>super</code> 函数的作用是可以将子类实例化时获得的参数传入父类的构造函数之中。</p>
+<h4 id="2-3-写在最后"><a href="#2-3-写在最后" class="headerlink" title="2.3 写在最后"></a>2.3 写在最后</h4><p>ECMAScript 6 中基于类的面向对象相较于构造函数和原型对象的面向对象本质上是一样的，基于类的语法更为简洁，未来的 JavaScript 中也都会是基于类的语法实现，当前阶段先熟悉基于类的语法，后面课程中会加强基于类语法的实践。</p>
+<h2 id="拷贝："><a href="#拷贝：" class="headerlink" title="拷贝："></a>拷贝：</h2><p>拷贝不是直接赋值</p>
+<p><strong>浅拷贝：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">含义：只拷贝最外面层的拷贝方式</span><br><span class="line">	let obj = &#123;</span><br><span class="line">			uname : &#x27;张三丰&#x27;,</span><br><span class="line">			age : 22,</span><br><span class="line">			sex : &#x27;男&#x27;,</span><br><span class="line">			color : [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;yellow&#x27;, &#x27;pink&#x27;],</span><br><span class="line">			message : &#123;</span><br><span class="line">				index : 1,</span><br><span class="line">				score : 99</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		let newObj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">		Object.assign(newObj, obj);</span><br><span class="line"></span><br><span class="line">		console.log( obj, newObj );</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>深拷贝：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">含义：所有层都拷贝的方式</span><br><span class="line"></span><br><span class="line">let obj = &#123;</span><br><span class="line">			uname : &#x27;张三丰&#x27;,</span><br><span class="line">			age : 22,</span><br><span class="line">			sex : &#x27;男&#x27;,</span><br><span class="line">			color : [&#x27;red&#x27;, &#x27;blue&#x27;, &#x27;yellow&#x27;, &#x27;pink&#x27;],</span><br><span class="line">			message : &#123;</span><br><span class="line">				index : 1,</span><br><span class="line">				score : 99</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		let newObj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">		function kaobei (newObj, obj) &#123;</span><br><span class="line"></span><br><span class="line">			for ( let key in obj ) &#123;</span><br><span class="line"></span><br><span class="line">				if ( obj[key] instanceof Array ) &#123;// obj[key] 是数组</span><br><span class="line">					 // obj[key]是数组，遍历</span><br><span class="line">					 newObj[key] = [];</span><br><span class="line">					 kaobei(newObj[key], obj[key]);</span><br><span class="line">				&#125; else if ( obj[key] instanceof Object ) &#123; // obj[key]是对象</span><br><span class="line">					// obj[key]是对象，遍历</span><br><span class="line">					newObj[key] = &#123;&#125;;</span><br><span class="line">					kaobei(newObj[key], obj[key]);</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					newObj[key] = obj[key];</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		kaobei(newObj, obj);</span><br><span class="line"></span><br><span class="line">		obj.message.score = 123;</span><br><span class="line"></span><br><span class="line">		console.log( obj, newObj );</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/CSS%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +383,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-16 12:41:58" itemprop="dateModified" datetime="2023-07-16T12:41:58+08:00">2023-07-16</time>
+                <time title="Modified: 2023-07-16 15:35:49" itemprop="dateModified" datetime="2023-07-16T15:35:49+08:00">2023-07-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,15 +391,11 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
                 </span>
             </span>
 
@@ -309,6 +493,608 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/flex%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">flex布局</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:38:43" itemprop="dateModified" datetime="2023-07-16T15:38:43+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
+<h4 id="基础知识（前言"><a href="#基础知识（前言" class="headerlink" title="基础知识（前言)"></a>基础知识（前言)</h4><ul>
+<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
+</li>
+<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
+</li>
+<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png">-&gt;F5刷新    </p>
+</li>
+<li><p>百分比布局：宽度自适应，高度固定</p>
+</li>
+<li><p>查看兼容性的网站：caniuse.com</p>
+</li>
+<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
+<hr></li>
+</ul>
+<h3 id="flex布局实现："><a href="#flex布局实现：" class="headerlink" title="flex布局实现："></a>flex布局实现：</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="1"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="2"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="3"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
+<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
+<ul>
+<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
+</ul>
+<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
+<ul>
+<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
+<ul>
+<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
+<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/git%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/git%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:39:42" itemprop="dateModified" datetime="2023-07-16T15:39:42+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="文件版本保存缺点"><a href="#文件版本保存缺点" class="headerlink" title="文件版本保存缺点"></a>文件版本保存缺点</h2><ul>
+<li>操作麻烦-每次需要复制粘贴重命名  </li>
+<li>明明不规范-无法通过文件名知道具体做了那些修改  </li>
+<li>容易丢失-如果硬盘故障或不小心删除，文件很容易丢失</li>
+<li>写作困难-需要手动合并每个人对项目文件的修改，合并时极易出错</li>
+</ul>
+<h2 id="版本控制软件"><a href="#版本控制软件" class="headerlink" title="版本控制软件"></a>版本控制软件</h2><p>1.概念，记录文件变化，以便将来查阅特定版本修订情况的系统<br>2.通俗理解：把手工管理文件版本的方式，改为由软件管理文件的版本，这个负责管理文件版本的软件，叫做版本控制软件。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>操作简便-只需记几组简单的终端命令</li>
+<li>易于对比</li>
+<li>易于回溯</li>
+<li>不易丢失</li>
+<li>协作方便</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>本地版本控制系统（单机运行）、集中化版本控制系统（多人开发、性能差，用户体验不好）、分布式版本控制系统（多人开发、性能优秀、用户体验好）</p>
+<h3 id="集中化版本控制系统（SVN）"><a href="#集中化版本控制系统（SVN）" class="headerlink" title="集中化版本控制系统（SVN）"></a>集中化版本控制系统（SVN）</h3><p>特点：基于服务器、客户端的运行模式  </p>
+<ol>
+<li>服务器保存文件的所有更新记录</li>
+<li>客户端只保留最新的文件版本<br>优点：联网运行、支持多人协作<br>缺点：<br>1.不支持离线提交版本更新<br>2.中心服务器崩溃后，所有人无法正常工作<br>3.版本数据库故障后，所有历史更新记录会丢失</li>
+</ol>
+<h3 id="分布式版本控制系统（git）"><a href="#分布式版本控制系统（git）" class="headerlink" title="分布式版本控制系统（git）"></a>分布式版本控制系统（git）</h3><p>特点：基于服务器、客户端的运行模式</p>
+<ol>
+<li>服务器保存文件的所有更新版本</li>
+<li>客户端是服务器的完整备份，并不是只保留文件的最新版本</li>
+</ol>
+<p>优点：<br>1.联网运行，支持多人协作开发<br>2.客户端断网后支持离线本地提交版本更新<br>3.服务器故障或损坏后，可使用任何一个客户端的备份进行恢复。</p>
+<h3 id="git的基本操作"><a href="#git的基本操作" class="headerlink" title="git的基本操作"></a>git的基本操作</h3><p>1.获取git仓库的两种方式：</p>
+<ul>
+<li>将尚未进行版本控制的本地目录转换为git仓库</li>
+<li>从其他服务器克隆一个已存在的git仓库</li>
+</ul>
+<p>2.在现有目录中初始化仓库<br>文件夹进入终端命令行，复制命令上传文件<br>3.查看文件工作区状态命令 git status，精简输出命令 git status -s<br>4.跟踪新文件（添加到暂存区）：git add <i>filename</i><br>5.提交更新git commit -m “commit message”<br>6.撤销修改git checkout – index.html，原理：用git仓库中的旧版本覆盖修改的文件，不可撤销，危险性较高，慎重操作<br>7.取消暂存的文件：git reset HEAD <i>filename</i><br>8.跳过暂存区，git commit -a -m “commit message”，执行这个命令不再需要执行 git add 命令<br>9.移除文件：从git仓库和工作区同时移除文件 git rm -f <i>filename</i><br>只从git仓库中移除文件 git rm –cached <i>filename</i><br>10.忽略文件：创建.gitignore配置文件，列出要忽略的文件的匹配模式</p>
+<ul>
+<li>以#开头为注释</li>
+<li>以&#x2F;结尾为目录</li>
+<li>以&#x2F;开头防止递归<img src="/mdimg/2023-07-13-11-45-26.png"></li>
+<li>以！开头表示取反</li>
+<li>可以使用glob模式（简化的正则表达式）进行文件和文件夹的匹配<ol>
+<li>* 匹配零个或多个任意字符</li>
+<li>[abc] 匹配任何一个列在方括号中的字符（匹配一个a&#x2F;一个b&#x2F;一个c）</li>
+<li>？ 只匹配一个任意字符</li>
+<li>0-9 匹配两个字符范围内的都可以匹配到</li>
+<li>a&#x2F;**&#x2F;z 表示匹配任意中间目录 a&#x2F;z&#x2F; ,a&#x2F;sddsfd&#x2F;s&#x2F;z&#x2F; ,a&#x2F;b&#x2F;z</li>
+</ol>
+</li>
+</ul>
+<p>11.查看历史提交信息：<img src="/mdimg/2023-07-13-11-48-45.png"> <hr/>实际应用<img src="/mdimg/2023-07-13-11-50-31.png"><br>12.<br>回退到指定的版本<br>git reset –hard commit ID<br>commit id 获取方式git log –pretty&#x3D;oneline，示例如图。<br><img src="/mdimg/2023-07-13-11-54-16.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/Web%20API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/30/Web%20API/" class="post-title-link" itemprop="url">Web API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-16 15:41:20" itemprop="dateModified" datetime="2023-07-16T15:41:20+08:00">2023-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/API/" itemprop="url" rel="index"><span itemprop="name">API</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Web-API介绍"><a href="#Web-API介绍" class="headerlink" title="Web API介绍"></a>Web API介绍</h2><h3 id="API的概念"><a href="#API的概念" class="headerlink" title="API的概念"></a>API的概念</h3><p>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</p>
+<ul>
+<li>任何开发语言都有自己的API</li>
+<li>API的特征输入和输出(I&#x2F;O)<ul>
+<li>var max &#x3D;  Math.max(1, 2, 3);</li>
+</ul>
+</li>
+<li>API的使用方法(console.log(‘adf’))</li>
+</ul>
+<h3 id="Web-API的概念"><a href="#Web-API的概念" class="headerlink" title="Web  API的概念"></a>Web  API的概念</h3><p>浏览器提供的一套操作浏览器功能和页面元素的API(BOM和DOM)</p>
+<p>此处的Web API特指浏览器提供的API(一组方法)，Web API在后面的课程中有其它含义</p>
+<h3 id="掌握常见浏览器提供的API的调用方式"><a href="#掌握常见浏览器提供的API的调用方式" class="headerlink" title="掌握常见浏览器提供的API的调用方式"></a>掌握常见浏览器提供的API的调用方式</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API">MDN-Web API</a></p>
+<h3 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h3><p><img src="/media/QQ%E5%9B%BE%E7%89%8720170810172512-2357176615.png" alt="QQ图片20170810172512"></p>
+<h4 id="ECMAScript-JavaScript的核心"><a href="#ECMAScript-JavaScript的核心" class="headerlink" title="ECMAScript - JavaScript的核心"></a>ECMAScript - JavaScript的核心</h4><p>定义了JavaScript 的语法规范</p>
+<p>JavaScript的核心，描述了语言的基本语法和数据类型，ECMAScript是一套标准，定义了一种语言的标准与具体实现无关</p>
+<h4 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM - 浏览器对象模型"></a>BOM - 浏览器对象模型</h4><p>一套操作浏览器功能的API</p>
+<p>通过BOM可以操作浏览器窗口，比如：弹出框、控制浏览器跳转、获取分辨率等 </p>
+<h4 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM - 文档对象模型"></a>DOM - 文档对象模型</h4><p>一套操作页面元素的API</p>
+<p>DOM可以把HTML看做是文档树，通过DOM提供的API可以对树上的节点进行操作</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><h3 id="DOM的概念"><a href="#DOM的概念" class="headerlink" title="DOM的概念"></a>DOM的概念</h3><p>文档对象模型（Document Object Model，简称DOM），是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/W3C">W3C</a>组织推荐的处理<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%AF%E6%89%A9%E5%B1%95%E7%BD%AE%E6%A0%87%E8%AF%AD%E8%A8%80">可扩展标记语言</a>的标准<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3">编程接口</a>。它是一种与平台和语言无关的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3">应用程序接口</a>(API),它可以动态地访问程序和脚本，更新其内容、结构和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/www/109924">www</a>文档的风格(目前，HTML和XML文档是通过说明部分定义的)。文档可以进一步被处理，处理的结果可以加入到当前的页面。<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DOM/50288">DOM</a>是一种基于树的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/API/10154">API</a>文档，它要求在处理过程中整个文档都表示在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%99%A8">存储器</a>中。</p>
+<p>DOM又称为文档树模型</p>
+<p><img src="/media/1497154623955.png" alt="1497154623955"></p>
+<ul>
+<li>文档：一个网页可以称为文档</li>
+<li>节点：网页中的所有内容都是节点（标签、属性、文本、注释等）</li>
+<li>元素：网页中的标签</li>
+<li>属性：标签的属性</li>
+</ul>
+<h3 id="DOM经常进行的操作"><a href="#DOM经常进行的操作" class="headerlink" title="DOM经常进行的操作"></a>DOM经常进行的操作</h3><ul>
+<li>获取元素</li>
+<li>对元素进行操作(设置其属性或调用其方法)</li>
+<li>动态创建元素</li>
+<li>事件(什么时机做相应的操作)</li>
+</ul>
+<h2 id="获取页面元素"><a href="#获取页面元素" class="headerlink" title="获取页面元素"></a>获取页面元素</h2><h3 id="为什么要获取页面元素"><a href="#为什么要获取页面元素" class="headerlink" title="为什么要获取页面元素"></a>为什么要获取页面元素</h3><p>例如：我们想要操作页面上的某部分(显示&#x2F;隐藏，动画)，需要先获取到该部分对应的元素，才进行后续操作</p>
+<h3 id="根据id获取元素"><a href="#根据id获取元素" class="headerlink" title="根据id获取元素"></a>根据id获取元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;main&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取到的数据类型 HTMLDivElement，对象都是有类型的</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：由于id名具有唯一性，部分浏览器支持直接使用id名访问元素，但不是标准方式，不推荐使用。</p>
+<h3 id="根据标签名获取元素"><a href="#根据标签名获取元素" class="headerlink" title="根据标签名获取元素"></a>根据标签名获取元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> divs = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; divs.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> div = divs[i];</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(div);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="根据name获取元素"><a href="#根据name获取元素" class="headerlink" title="根据name获取元素*"></a>根据name获取元素*</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inputs = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;hobby&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; inputs.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> input = inputs[i];</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(input);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据类名获取元素"><a href="#根据类名获取元素" class="headerlink" title="根据类名获取元素*"></a>根据类名获取元素*</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mains = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;main&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; mains.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> main = mains[i];</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(main);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据选择器获取元素"><a href="#根据选择器获取元素" class="headerlink" title="根据选择器获取元素*"></a>根据选择器获取元素*</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#text&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(text);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> boxes = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.box&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; boxes.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> box = boxes[i];</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(box);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>总结</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">掌握</span><br><span class="line">	getElementById()</span><br><span class="line">	getElementsByTagName()</span><br><span class="line">了解</span><br><span class="line">	getElementsByName()</span><br><span class="line">	getElementsByClassName()</span><br><span class="line">	querySelector()</span><br><span class="line">	querySelectorAll()</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>事件：触发-响应机制</p>
+<h3 id="事件三要素"><a href="#事件三要素" class="headerlink" title="事件三要素"></a>事件三要素</h3><ul>
+<li>事件源:触发(被)事件的元素</li>
+<li>事件名称: click 点击事件</li>
+<li>事件处理程序:事件触发后要执行的代码(函数形式)</li>
+</ul>
+<h3 id="事件的基本使用"><a href="#事件的基本使用" class="headerlink" title="事件的基本使用"></a>事件的基本使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;代码会在box被点击后执行&#x27;</span>);  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>点击按钮弹出提示框</li>
+<li>点击按钮切换图片</li>
+</ul>
+<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><h3 id="非表单元素的属性"><a href="#非表单元素的属性" class="headerlink" title="非表单元素的属性"></a>非表单元素的属性</h3><p>href、title、id、src、className</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> link = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(link.<span class="property">href</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(link.<span class="property">title</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pic = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;pic&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(pic.<span class="property">src</span>);</span><br></pre></td></tr></table></figure>
+
+<p>案例：</p>
+<p>​	点击按钮显示隐藏div</p>
+<p>​	美女相册</p>
+<ul>
+<li>innerHTML和innerText</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">innerHTML</span> = <span class="string">&#x27;我是文本&lt;p&gt;我会生成为标签&lt;/p&gt;&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">innerHTML</span>);</span><br><span class="line">box.<span class="property">innerText</span> = <span class="string">&#x27;我是文本&lt;p&gt;我不会生成为标签&lt;/p&gt;&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">innerText</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>HTML转义符</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;		&amp;quot;</span><br><span class="line">&#x27;		&amp;apos;</span><br><span class="line">&amp;		&amp;amp;</span><br><span class="line">&lt;		&amp;lt;   // less than  小于</span><br><span class="line">&gt;		&amp;gt;   // greater than  大于</span><br><span class="line">空格	   &amp;nbsp;</span><br><span class="line">©		&amp;copy;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>innerHTML和innerText的区别</p>
+</li>
+<li><p>innerText的兼容性处理</p>
+</li>
+</ul>
+<h3 id="表单元素属性"><a href="#表单元素属性" class="headerlink" title="表单元素属性"></a>表单元素属性</h3><ul>
+<li>value 用于大部分表单元素的内容获取(option除外)</li>
+<li>type 可以获取input标签的类型(输入框或复选框等)</li>
+<li>disabled 禁用属性</li>
+<li>checked 复选框选中属性</li>
+<li>selected 下拉菜单选中属性</li>
+</ul>
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>点击按钮禁用文本框</li>
+<li>给文本框赋值，获取文本框的值</li>
+<li>检测用户名是否是3-6位，密码是否是6-8位，如果不满足要求高亮显示文本框</li>
+<li>设置下拉框中的选中项</li>
+<li>搜索文本框</li>
+<li>全选反选</li>
+</ul>
+<h3 id="自定义属性操作"><a href="#自定义属性操作" class="headerlink" title="自定义属性操作"></a>自定义属性操作</h3><ul>
+<li>getAttribute() 获取标签行内属性</li>
+<li>setAttribute() 设置标签行内属性</li>
+<li>removeAttribute() 移除标签行内属性</li>
+<li>与element.属性的区别: 上述三个方法用于获取任意的行内属性。</li>
+</ul>
+<h3 id="样式操作"><a href="#样式操作" class="headerlink" title="样式操作"></a>样式操作</h3><ul>
+<li><p>使用style方式设置的样式显示在标签行内</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&#x27;100px&#x27;</span>;</span><br><span class="line">box.<span class="property">style</span>.<span class="property">height</span> = <span class="string">&#x27;100px&#x27;</span>;</span><br><span class="line">box.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;red&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意</p>
+<p>通过样式属性设置宽高、位置的属性类型是字符串，需要加上px</p>
+</li>
+</ul>
+<h3 id="类名操作"><a href="#类名操作" class="headerlink" title="类名操作"></a>类名操作</h3><ul>
+<li>修改标签的className属性相当于直接修改标签的类名<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">className</span> = <span class="string">&#x27;show&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>开关灯</li>
+<li>点击按钮改变div的背景颜色</li>
+<li>图片切换二维码案例</li>
+<li>当前输入的文本框高亮显示</li>
+<li>点击按钮改变div的大小和位置</li>
+<li>列表隔行变色、高亮显示</li>
+<li>tab选项卡切换</li>
+</ul>
+<h2 id="创建元素的三种方式"><a href="#创建元素的三种方式" class="headerlink" title="创建元素的三种方式"></a>创建元素的三种方式</h2><h3 id="document-write"><a href="#document-write" class="headerlink" title="document.write()"></a>document.write()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;新设置的内容&lt;p&gt;标签也可以生成&lt;/p&gt;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">innerHTML</span> = <span class="string">&#x27;新内容&lt;p&gt;新标签&lt;/p&gt;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="document-createElement"><a href="#document-createElement" class="headerlink" title="document.createElement()"></a>document.createElement()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(div);</span><br></pre></td></tr></table></figure>
+
+<h3 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h3><ul>
+<li>innerHTML方法由于会对字符串进行解析，需要避免在循环内多次使用。</li>
+<li>可以借助字符串或数组的方式进行替换，再设置给innerHTML</li>
+<li>优化后与document.createElement性能相近</li>
+</ul>
+<h3 id="案例-3"><a href="#案例-3" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>动态创建列表，高亮显示</li>
+<li>根据数据动态创建表格</li>
+</ul>
+<h2 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> body = <span class="variable language_">document</span>.<span class="property">body</span>;</span><br><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">body.<span class="title function_">appendChild</span>(div);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> firstEle = body.<span class="property">children</span>[<span class="number">0</span>];</span><br><span class="line">body.<span class="title function_">insertBefore</span>(div, firstEle);</span><br><span class="line"></span><br><span class="line">body.<span class="title function_">removeChild</span>(firstEle);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> text = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">body.<span class="title function_">replaceChild</span>(text, div);</span><br></pre></td></tr></table></figure>
+
+<p>案例：</p>
+<p>​	选择水果</p>
+<h3 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h3><ul>
+<li>nodeType  节点的类型<ul>
+<li>1 元素节点</li>
+<li>2 属性节点</li>
+<li>3 文本节点</li>
+</ul>
+</li>
+<li>nodeName  节点的名称(标签名称)</li>
+<li>nodeValue  节点值<ul>
+<li>元素节点的nodeValue始终是null</li>
+</ul>
+</li>
+</ul>
+<h3 id="模拟文档树结构"><a href="#模拟文档树结构" class="headerlink" title="模拟文档树结构"></a>模拟文档树结构</h3><p><img src="/media/1497165666684.png" alt="1497165666684"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Node</span>(<span class="params">option</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">id</span> = option.<span class="property">id</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">nodeName</span> = option.<span class="property">nodeName</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">nodeValue</span> = option.<span class="property">nodeValue</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">nodeType</span> = <span class="number">1</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">children</span> = option.<span class="property">children</span> || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doc = <span class="keyword">new</span> <span class="title class_">Node</span>(&#123;</span><br><span class="line">  <span class="attr">nodeName</span>: <span class="string">&#x27;html&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> head = <span class="keyword">new</span> <span class="title class_">Node</span>(&#123;</span><br><span class="line">  <span class="attr">nodeName</span>: <span class="string">&#x27;head&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> body = <span class="keyword">new</span> <span class="title class_">Node</span>(&#123;</span><br><span class="line">  <span class="attr">nodeName</span>: <span class="string">&#x27;body&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">doc.<span class="property">children</span>.<span class="title function_">push</span>(head);</span><br><span class="line">doc.<span class="property">children</span>.<span class="title function_">push</span>(body);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="keyword">new</span> <span class="title class_">Node</span>(&#123;</span><br><span class="line">  <span class="attr">nodeName</span>: <span class="string">&#x27;div&#x27;</span>,</span><br><span class="line">  <span class="attr">nodeValue</span>: <span class="string">&#x27;haha&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Node</span>(&#123;</span><br><span class="line">  <span class="attr">nodeName</span>: <span class="string">&#x27;p&#x27;</span>,</span><br><span class="line">  <span class="attr">nodeValue</span>: <span class="string">&#x27;段落&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">body.<span class="property">children</span>.<span class="title function_">push</span>(div);</span><br><span class="line">body.<span class="property">children</span>.<span class="title function_">push</span>(p);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getChildren</span>(<span class="params">ele</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ele.<span class="property">children</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> child = ele.<span class="property">children</span>[i];</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(child.<span class="property">nodeName</span>);</span><br><span class="line">    <span class="title function_">getChildren</span>(child);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getChildren</span>(doc);</span><br></pre></td></tr></table></figure>
+
+<h3 id="节点层级"><a href="#节点层级" class="headerlink" title="节点层级"></a>节点层级</h3><p><img src="/media/1503541915769.png" alt="1503541915769"> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">parentNode</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">childNodes</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">children</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">nextSibling</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">previousSibling</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">firstChild</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">lastChild</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>注意</p>
+<p>childNodes和children的区别，childNodes获取的是子节点，children获取的是子元素</p>
+<p>nextSibling和previousSibling获取的是节点，获取元素对应的属性是nextElementSibling和previousElementSibling获取的是元素</p>
+<p>​	nextElementSibling和previousElementSibling有兼容性问题，IE9以后才支持</p>
+</li>
+<li><p>总结</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">节点操作，方法</span><br><span class="line">	appendChild()</span><br><span class="line">	insertBefore()</span><br><span class="line">	removeChild()</span><br><span class="line">	replaceChild()</span><br><span class="line">节点层次，属性</span><br><span class="line">	parentNode</span><br><span class="line">	childNodes</span><br><span class="line">	children</span><br><span class="line">	nextSibling/previousSibling</span><br><span class="line">	firstChild/lastChild</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件详解"><a href="#事件详解" class="headerlink" title="事件详解"></a>事件详解</h2><h3 id="注册-移除事件的三种方式"><a href="#注册-移除事件的三种方式" class="headerlink" title="注册&#x2F;移除事件的三种方式"></a>注册&#x2F;移除事件的三种方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line">box.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;点击后执行&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">box.<span class="property">onclick</span> = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">box.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, eventCode, <span class="literal">false</span>);</span><br><span class="line">box.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>, eventCode, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">box.<span class="title function_">attachEvent</span>(<span class="string">&#x27;onclick&#x27;</span>, eventCode);</span><br><span class="line">box.<span class="title function_">detachEvent</span>(<span class="string">&#x27;onclick&#x27;</span>, eventCode);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">eventCode</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;点击后执行&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="兼容代码"><a href="#兼容代码" class="headerlink" title="兼容代码"></a>兼容代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">addEventListener</span>(<span class="params">element, type, fn</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (element.<span class="property">addEventListener</span>) &#123;</span><br><span class="line">    element.<span class="title function_">addEventListener</span>(type, fn, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">attachEvent</span>)&#123;</span><br><span class="line">    element.<span class="title function_">attachEvent</span>(<span class="string">&#x27;on&#x27;</span> + type,fn);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    element[<span class="string">&#x27;on&#x27;</span> + type] = fn;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">removeEventListener</span>(<span class="params">element, type, fn</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (element.<span class="property">removeEventListener</span>) &#123;</span><br><span class="line">    element.<span class="title function_">removeEventListener</span>(type, fn, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">detachEvent</span>) &#123;</span><br><span class="line">    element.<span class="title function_">detachEvent</span>(<span class="string">&#x27;on&#x27;</span> + type, fn);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    element[<span class="string">&#x27;on&#x27;</span>+type] = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h3><ol>
+<li><p>捕获阶段</p>
+</li>
+<li><p>当前目标阶段</p>
+</li>
+<li><p>冒泡阶段</p>
+<p>事件对象.eventPhase属性可以查看事件触发时所处的阶段</p>
+</li>
+</ol>
+<h3 id="事件对象的属性和方法"><a href="#事件对象的属性和方法" class="headerlink" title="事件对象的属性和方法"></a>事件对象的属性和方法</h3><ul>
+<li>event.type 获取事件类型</li>
+<li>clientX&#x2F;clientY     所有浏览器都支持，窗口位置</li>
+<li>pageX&#x2F;pageY       IE8以前不支持，页面位置</li>
+<li>event.target || event.srcElement 用于获取触发事件的元素</li>
+<li>event.preventDefault() 取消默认行为</li>
+</ul>
+<h4 id="案例-4"><a href="#案例-4" class="headerlink" title="案例"></a>案例</h4><ul>
+<li>跟着鼠标飞的天使</li>
+<li>鼠标点哪图片飞到哪里</li>
+<li>获取鼠标在div内的坐标</li>
+</ul>
+<h3 id="阻止事件传播的方式"><a href="#阻止事件传播的方式" class="headerlink" title="阻止事件传播的方式"></a>阻止事件传播的方式</h3><ul>
+<li>标准方式 event.stopPropagation();</li>
+<li>IE低版本 event.cancelBubble &#x3D; true; 标准中已废弃</li>
+</ul>
+<h3 id="常用的鼠标和键盘事件"><a href="#常用的鼠标和键盘事件" class="headerlink" title="常用的鼠标和键盘事件"></a>常用的鼠标和键盘事件</h3><ul>
+<li>onmouseup 鼠标按键放开时触发</li>
+<li>onmousedown 鼠标按键按下触发</li>
+<li>onmousemove 鼠标移动触发</li>
+<li>onkeyup 键盘按键按下触发</li>
+<li>onkeydown 键盘按键抬起触发</li>
+</ul>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><h3 id="BOM的概念"><a href="#BOM的概念" class="headerlink" title="BOM的概念"></a>BOM的概念</h3><p>BOM(Browser Object Model) 是指浏览器对象模型，浏览器对象模型提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。BOM由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象。</p>
+<p>我们在浏览器中的一些操作都可以使用BOM的方式进行编程处理，</p>
+<p>比如：刷新浏览器、后退、前进、在浏览器中输入URL等</p>
+<h3 id="BOM的顶级对象window"><a href="#BOM的顶级对象window" class="headerlink" title="BOM的顶级对象window"></a>BOM的顶级对象window</h3><p>window是浏览器的顶级对象，当调用window下的属性和方法时，可以省略window<br>注意：window下一个特殊的属性 window.name</p>
+<h3 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h3><ul>
+<li>alert()</li>
+<li>prompt()</li>
+<li>confirm()</li>
+</ul>
+<h3 id="页面加载事件"><a href="#页面加载事件" class="headerlink" title="页面加载事件"></a>页面加载事件</h3><ul>
+<li>onload</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 当页面加载完成执行</span></span><br><span class="line">  <span class="comment">// 当页面完全加载所有内容（包括图像、脚本文件、CSS 文件等）执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>onunload</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onunload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 当用户退出页面时执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><h4 id="setTimeout-和clearTimeout"><a href="#setTimeout-和clearTimeout" class="headerlink" title="setTimeout()和clearTimeout()"></a>setTimeout()和clearTimeout()</h4><p>在指定的毫秒数到达之后执行指定的函数，只执行一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个定时器，1000毫秒后执行，返回定时器的标示</span></span><br><span class="line"><span class="keyword">var</span> timerId = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消定时器的执行</span></span><br><span class="line"><span class="built_in">clearTimeout</span>(timerId);</span><br></pre></td></tr></table></figure>
+
+<h4 id="setInterval-和clearInterval"><a href="#setInterval-和clearInterval" class="headerlink" title="setInterval()和clearInterval()"></a>setInterval()和clearInterval()</h4><p>定时调用的函数，可以按照给定的时间(单位毫秒)周期调用函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个定时器，每隔1秒调用一次</span></span><br><span class="line"><span class="keyword">var</span> timerId = <span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(date.<span class="title function_">toLocaleTimeString</span>());</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消定时器的执行</span></span><br><span class="line"><span class="built_in">clearInterval</span>(timerId);</span><br></pre></td></tr></table></figure>
+
+<p>案例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">定时器</span><br><span class="line">简单动画</span><br></pre></td></tr></table></figure>
+
+<h3 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h3><p>location对象是window对象下的一个属性，使用的时候可以省略window对象</p>
+<p>location可以获取或者设置浏览器地址栏的URL</p>
+<h4 id="location有哪些成员？"><a href="#location有哪些成员？" class="headerlink" title="location有哪些成员？"></a>location有哪些成员？</h4><ul>
+<li><p>使用chrome的控制台查看</p>
+</li>
+<li><p>查MDN</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN</a></p>
+</li>
+<li><p>成员</p>
+<ul>
+<li>assign()&#x2F;reload()&#x2F;replace()</li>
+<li>hash&#x2F;host&#x2F;hostname&#x2F;search&#x2F;href……</li>
+</ul>
+</li>
+</ul>
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h4><p>统一资源定位符 (Uniform Resource Locator, URL)</p>
+<ul>
+<li>URL的组成</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">scheme://host:port/path?query#fragment</span><br><span class="line">http://www.itheima.com:80/a/b/index.html?name=zs&amp;age=18#bottom</span><br><span class="line">scheme:通信协议</span><br><span class="line">	常用的http,ftp,maito等</span><br><span class="line">host:主机</span><br><span class="line">	服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。</span><br><span class="line">port:端口号</span><br><span class="line">	整数，可选，省略时使用方案的默认端口，如http的默认端口为80。</span><br><span class="line">path:路径</span><br><span class="line">	由零或多个&#x27;/&#x27;符号隔开的字符串，一般用来表示主机上的一个目录或文件地址。</span><br><span class="line">query:查询</span><br><span class="line">	可选，用于给动态网页传递参数，可有多个参数，用&#x27;&amp;&#x27;符号隔开，每个参数的名和值用&#x27;=&#x27;符号隔开。例如：name=zs</span><br><span class="line">fragment:信息片断</span><br><span class="line">	字符串，锚点.</span><br></pre></td></tr></table></figure>
+
+<h4 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h4><p>解析URL中的query，并返回对象的形式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getQuery</span>(<span class="params">queryStr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> query = &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (queryStr.<span class="title function_">indexOf</span>(<span class="string">&#x27;?&#x27;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> index = queryStr.<span class="title function_">indexOf</span>(<span class="string">&#x27;?&#x27;</span>);</span><br><span class="line">    queryStr = queryStr.<span class="title function_">substr</span>(index + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> array = queryStr.<span class="title function_">split</span>(<span class="string">&#x27;&amp;&#x27;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">var</span> tmpArr = array[i].<span class="title function_">split</span>(<span class="string">&#x27;=&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span> (tmpArr.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">        query[tmpArr[<span class="number">0</span>]] = tmpArr[<span class="number">1</span>];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> query;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getQuery</span>(location.<span class="property">search</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">getQuery</span>(location.<span class="property">href</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h3><ul>
+<li>back()</li>
+<li>forward()</li>
+<li>go()</li>
+</ul>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><ul>
+<li>userAgent</li>
+</ul>
+<h2 id="特效"><a href="#特效" class="headerlink" title="特效"></a>特效</h2><h3 id="偏移量"><a href="#偏移量" class="headerlink" title="偏移量"></a>偏移量</h3><ul>
+<li>offsetParent用于获取定位的父级元素</li>
+<li>offsetParent和parentNode的区别</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">offsetParent</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">offsetLeft</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">offsetTop</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">offsetWidth</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">offsetHeight</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/media/1498743216279.png" alt="1498743216279"></p>
+<h3 id="客户区大小"><a href="#客户区大小" class="headerlink" title="客户区大小"></a>客户区大小</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">clientLeft</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">clientTop</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">clientWidth</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">clientHeight</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/media/1504075813134.png" alt="1504075813134"></p>
+<h3 id="滚动偏移"><a href="#滚动偏移" class="headerlink" title="滚动偏移"></a>滚动偏移</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">scrollLeft</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">scrollTop</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">scrollWidth</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">scrollHeight</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/media/1498743288621.png" alt="1498743288621"></p>
+<h3 id="案例-5"><a href="#案例-5" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>拖拽案例</li>
+<li>弹出登录窗口</li>
+<li>放大镜案例</li>
+<li>模拟滚动条</li>
+<li>匀速动画函数</li>
+<li>变速动画函数</li>
+<li>无缝轮播图</li>
+<li>回到顶部</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="元素的类型"><a href="#元素的类型" class="headerlink" title="元素的类型"></a>元素的类型</h3><p><img src="/media/1497169919418.png" alt="1497169919418"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
 
@@ -377,18 +1163,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
