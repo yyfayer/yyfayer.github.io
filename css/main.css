@@ -313,7 +313,7 @@ td {
 }
 .btn {
   background: var(--btn-default-bg);
-  border: 2px solid var(--btn-default-border-color);
+  border: 2px solid #bead9f;
   border-radius: 2px;
   color: var(--btn-default-color);
   display: inline-block;
@@ -961,7 +961,7 @@ pre .javascript .function {
   padding: 0 10px;
 }
 .headband {
-  background: #222;
+  background: #d7bcae;
   height: 3px;
 }
 .site-meta {
@@ -991,7 +991,7 @@ pre .javascript .function {
   margin: 0;
 }
 .site-subtitle {
-  color: #ddd;
+  color: #f0e6d0;
   font-size: 0.8125em;
   margin: 10px 0;
 }
@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff5dff;
+  background: #ffff45;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1412,7 +1412,7 @@ pre .javascript .function {
   width: 100%;
 }
 .with-love {
-  color: #FDF6E3;
+  color: #61393F;
   display: inline-block;
   margin: 0 5px;
 }
@@ -1670,11 +1670,11 @@ pre .javascript .function {
   width: 4px;
 }
 .post-eof {
-  background: #ccc;
+  background: #bead9f;
   height: 1px;
   margin: 80px auto 60px;
   text-align: center;
-  width: 8%;
+  width: 90%;
 }
 .post-block:last-of-type .post-eof {
   display: none;
@@ -2141,7 +2141,8 @@ ul.breadcrumb li + li:last-child {
   color: var(--link-hover-color) !important;
 }
 body {
-  background: url("/images/bg.jpg");
+  background: url("/images/bg.jpg") no-repeat;
+  background-size: cover;
   background-attachment: fixed;
 }
 .header {
@@ -2232,7 +2233,7 @@ body {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: #d7bcae;
 }
 @media (max-width: 991px) {
   .site-brand-container {
