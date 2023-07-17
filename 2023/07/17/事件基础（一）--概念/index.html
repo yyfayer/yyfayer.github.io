@@ -20,30 +20,20 @@
     var CONFIG = {"hostname":"yyfayer.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="2">
+  <meta name="description" content="事件是浏览器用来表示有什么事发生的方法，浏览网页时，浏览器会注册不同类型的事件，脚本响应事件的方式通常是更新Web页面的内容，从而使页面更具有交互性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex布局">
-<meta property="og:url" content="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:title" content="事件基础1">
+<meta property="og:url" content="https://yyfayer.github.io/2023/07/17/%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89--%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="Yangwanwan‘s Blog">
-<meta property="og:description" content="2">
+<meta property="og:description" content="事件是浏览器用来表示有什么事发生的方法，浏览网页时，浏览器会注册不同类型的事件，脚本响应事件的方式通常是更新Web页面的内容，从而使页面更具有交互性。">
 <meta property="og:locale">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/image.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-27-48.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-51-41.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-53-39.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-48-50.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-49-10.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-44-04.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-14-47-25.png">
-<meta property="og:image" content="https://yyfayer.github.io/mdimg/2023-06-05-15-09-35.png">
-<meta property="article:published_time" content="2023-06-30T10:47:38.000Z">
-<meta property="article:modified_time" content="2023-07-16T08:49:40.101Z">
+<meta property="article:published_time" content="2023-07-17T10:07:38.000Z">
+<meta property="article:modified_time" content="2023-07-17T10:08:35.550Z">
 <meta property="article:author" content="Yangwanwan">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yyfayer.github.io/mdimg/image.png">
 
-<link rel="canonical" href="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/">
+<link rel="canonical" href="https://yyfayer.github.io/2023/07/17/%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89--%E6%A6%82%E5%BF%B5/">
 
 
 <script id="page-configurations">
@@ -56,7 +46,7 @@
   };
 </script>
 
-  <title>flex布局 | Yangwanwan‘s Blog</title>
+  <title>事件基础1 | Yangwanwan‘s Blog</title>
   
 
 
@@ -167,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/06/30/flex%E5%B8%83%E5%B1%80/">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/07/17/%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89--%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          flex布局
+          事件基础1
         </h1>
 
         <div class="post-meta">
@@ -189,16 +179,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-06-30 18:47:38" itemprop="dateCreated datePublished" datetime="2023-06-30T18:47:38+08:00">2023-06-30</time>
+              <time title="Created: 2023-07-17 18:07:38 / Modified: 18:08:35" itemprop="dateCreated datePublished" datetime="2023-07-17T18:07:38+08:00">2023-07-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-16 16:49:40" itemprop="dateModified" datetime="2023-07-16T16:49:40+08:00">2023-07-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -209,7 +193,7 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                  <a href="/categories/Web/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
                 </span>
             </span>
 
@@ -224,43 +208,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>2</p>
+        <p>事件是浏览器用来表示有什么事发生的方法，浏览网页时，浏览器会注册不同类型的事件，脚本响应事件的方式通常是更新Web页面的内容，从而使页面更具有交互性。</p>
 <span id="more"></span>
 
-<h2 id="flex布局：解决浮动脱标问题"><a href="#flex布局：解决浮动脱标问题" class="headerlink" title="flex布局：解决浮动脱标问题"></a>flex布局：解决浮动脱标问题</h2><hr>
-<h4 id="基础知识（前言"><a href="#基础知识（前言" class="headerlink" title="基础知识（前言)"></a>基础知识（前言)</h4><ul>
-<li><p>PC端版心一般居中，但手机端没有版心，一般为水平填满  </p>
-</li>
-<li><p>目前PC端和手机端网页一般为两个网站（jd.com&#x2F;m.jd.com）  </p>
-</li>
-<li><p>pc调试手机端网页：<br>谷歌浏览器-&gt;F12-&gt;<img src="/mdimg/image.png">-&gt;F5刷新    </p>
-</li>
-<li><p>百分比布局：宽度自适应，高度固定</p>
-</li>
-<li><p>查看兼容性的网站：caniuse.com</p>
-</li>
-<li><p>&#x3D;&#x3D;command+option+v&#x3D;&#x3D; Paste Image插件在md中粘贴图片快捷键</p>
-<hr></li>
+<h2 id="不同的事件类型"><a href="#不同的事件类型" class="headerlink" title="不同的事件类型"></a>不同的事件类型</h2><ul>
+<li>UI事件（当与浏览器UI本身（而不是网页）交互时发生的事件）<ul>
+<li>load、unload、error、resize、scroll</li>
 </ul>
-<h3 id="flex布局实现："><a href="#flex布局实现：" class="headerlink" title="flex布局实现："></a>flex布局实现：</h3><p>在父元素(container)中添加display:flex; 资源素自动的挤压或者拉伸。<br>flex布局组成部分：弹性容器&#x2F;弹性盒子&#x2F;主轴&#x2F;侧轴<br><img src="/mdimg/2023-06-05-14-27-48.png" alt="1"><br>容器设置：<br>设置主轴布局方式：justify-content:center&#x2F;&#x3D;&#x3D;space-between&#x3D;&#x3D;&#x2F;space-around&#x2F;space-evenly（所有间距平均）<br>space-around效果（每个盒子左右间距相同）：<br><img src="/mdimg/2023-06-05-14-51-41.png" alt="2"><br>space-evenly（所有间距平均）：<br><img src="/mdimg/2023-06-05-14-53-39.png" alt="3"><br>设置侧轴布局方式：align-item:center&#x2F;stretch<br>盒子(item)设置：<br>设置侧轴布局方式：align-self:center&#x2F;stretch</p>
-<p>&#x3D;&#x3D;Tips&#x3D;&#x3D;:</p>
-<ul>
-<li>子元素（item）不设置宽度，则item的宽由其内容决定；</li>
+</li>
+<li>键盘事件（顾名思义）<ul>
+<li>keydown、keyup、keypress</li>
 </ul>
-<p>图1（width：20px）<br><img src="/mdimg/2023-06-05-14-48-50.png" alt="1"><br>图2<br><img src="/mdimg/2023-06-05-14-49-10.png" alt="2"></p>
-<ul>
-<li>子元素不设置高度，则item的高默认与container一样，即stretch效果</li>
+</li>
+<li>鼠标事件（顾名思义）<ul>
+<li>click、dbclick、mousedown、mouseup、nouseover、mouseup、mousemove、mouseover、mouseout</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>焦点事件（当一个元素（比如链接或表单域）得到或失去焦点时发生）<ul>
+<li>focus、blur</li>
+</ul>
+</li>
+<li>表单事件（当用户与表单元素进行交互时发生）<ul>
+<li>input、change、submit、reset、cut、copy、paste、select</li>
+</ul>
+</li>
+<li>变动事件（未涉及）<ul>
+<li>DomSubtreeModified、……</li>
+</ul>
+</li>
+</ul>
+<h2 id="事件处理过程"><a href="#事件处理过程" class="headerlink" title="事件处理过程"></a>事件处理过程</h2><ol>
+<li>选中需要使用脚本进行事件响应的元素节点 –指定元素</li>
+<li>声明需要在选中节点上响应触发的时间 –绑定事件</li>
+<li>指定当事件发生时需要运行的代码 –调用代码</li>
+</ol>
+<h2 id="绑定事件的方法"><a href="#绑定事件的方法" class="headerlink" title="绑定事件的方法"></a>绑定事件的方法</h2><p>1.HTML事件处理程序（淘汰，标签属性中调用函数，<code>&lt;onclick = &quot;hide()&quot;&gt;</code>)<br>2.传统DOM事件处理程序,每个事件处理程序只能附加一个函数，<table><tr><td bgcolor=#bbdddd>如：表单submit事件绑定一个检查表单内容的方法，不能同时绑定提交通过检查的表单数据方法。</td></tr></table></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">checkUsername</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">//code to check username</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> el = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.username&#x27;</span>)</span><br><span class="line">el.<span class="property">onclick</span> = checkusername</span><br></pre></td></tr></table></figure>
 
-<p>效果：<img src="/mdimg/2023-06-05-14-44-04.png" alt="3"></p>
-<ul>
-<li>子元素不设置高度，但设置了align-self:center，则其高度由内容决定</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-self</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>DOM监听器:(参数：事件，代码，事件流 false冒泡，ture捕获)<br><code>element.addEventListener(&#39;event&#39;,functionname[,Boolean])</code><br>Tips：由于JS预解析的特性，当调用的函数无参数时，直接调用即可，当调用的函数存在参数时，调用需要放在匿名函数里，防止被预解析，此时执行代码函数this指向匿名函数而非添加事件监听的事件源。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用函数无参数,this指向el</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">checkUsername</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> elMsg = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.feedback&#x27;</span>)</span><br><span class="line">    <span class="comment">//code to check username</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">value</span>.<span class="property">length</span> &lt; <span class="number">5</span>)&#123;</span><br><span class="line">        ……</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> el = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.username&#x27;</span>)</span><br><span class="line">el.<span class="title class_">AddeventListener</span>(<span class="string">&#x27;click&#x27;</span>,checkUsername)</span><br></pre></td></tr></table></figure>
 
-<p>效果：<img src="/mdimg/2023-06-05-14-47-25.png" alt="4"></p>
-<p>案例应用：<br><img src="/mdimg/2023-06-05-15-09-35.png" alt="5"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用函数有参数，不能使用this，此时函数内this指向匿名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">checkUsername</span>(<span class="params">minLength</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> elUsername = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.username&#x27;</span>)</span><br><span class="line">    <span class="keyword">let</span> elMsg = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.feedback&#x27;</span>）</span><br><span class="line">    <span class="keyword">if</span>(elUsername.<span class="property">value</span>.<span class="property">length</span> &lt; minLength)&#123;</span><br><span class="line">        ……</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> el = <span class="variable language_">document</span>.<span class="title function_">querySelecter</span>(<span class="string">&#x27;.username&#x27;</span>)</span><br><span class="line">el.<span class="title class_">AddeventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title function_">checkUsername</span>(<span class="number">5</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -270,7 +260,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/JS/" rel="tag"># JS</a>
           </div>
 
         
@@ -278,11 +268,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/06/30/git%E7%AC%94%E8%AE%B0/" rel="next" title="git">
-      git <i class="fa fa-chevron-right"></i>
+    <a href="/2023/07/17/%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89--%E4%BA%8B%E4%BB%B6%E6%B5%81/" rel="prev" title="事件基础2--事件流">
+      <i class="fa fa-chevron-left"></i> 事件基础2--事件流
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -341,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flex%E5%B8%83%E5%B1%80%EF%BC%9A%E8%A7%A3%E5%86%B3%E6%B5%AE%E5%8A%A8%E8%84%B1%E6%A0%87%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">flex布局：解决浮动脱标问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E5%89%8D%E8%A8%80"><span class="nav-number">1.0.1.</span> <span class="nav-text">基础知识（前言)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex%E5%B8%83%E5%B1%80%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">flex布局实现：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">不同的事件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">事件处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">绑定事件的方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
