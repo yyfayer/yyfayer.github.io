@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-yww.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-yww.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-yww.png">
+  <link rel="mask-icon" href="/images/logo-yww.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yyfayer.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="致密砂岩储层裂缝识别方法-以新场为例1.储层裂缝研究意义裂缝不仅是油气的主要储集空间，也是油气运移的有效渗滤通道。特别是对低孔低渗致密性储层来说，当其发育足够的天然裂缝或岩石经压裂改造后可以产生大量裂缝时，这些储层完全可以成为有效的油气储层。 裂缝发育时油气高产的主要因素：  裂缝与产能的关系：裂缝网络系统发育时之谜油气藏高产富集的必要条件。对于致密砂岩来说，低孔低渗的基质孔隙基本不具备有效渗滤条">
+<meta property="og:type" content="article">
+<meta property="og:title" content="致密砂岩测井裂缝识别">
+<meta property="og:url" content="https://yyfayer.github.io/2023/07/20/%E8%87%B4%E5%AF%86%E7%A0%82%E5%B2%A9%E6%B5%8B%E4%BA%95%E8%A3%82%E7%BC%9D%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="Yangwanwan‘s Blog">
+<meta property="og:description" content="致密砂岩储层裂缝识别方法-以新场为例1.储层裂缝研究意义裂缝不仅是油气的主要储集空间，也是油气运移的有效渗滤通道。特别是对低孔低渗致密性储层来说，当其发育足够的天然裂缝或岩石经压裂改造后可以产生大量裂缝时，这些储层完全可以成为有效的油气储层。 裂缝发育时油气高产的主要因素：  裂缝与产能的关系：裂缝网络系统发育时之谜油气藏高产富集的必要条件。对于致密砂岩来说，低孔低渗的基质孔隙基本不具备有效渗滤条">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-07-20T07:38:30.000Z">
+<meta property="article:modified_time" content="2023-07-21T09:36:12.227Z">
+<meta property="article:author" content="Yangwanwan">
+<meta property="article:tag" content="welllog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://yyfayer.github.io/2023/07/20/%E8%87%B4%E5%AF%86%E7%A0%82%E5%B2%A9%E6%B5%8B%E4%BA%95%E8%A3%82%E7%BC%9D%E8%AF%86%E5%88%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>致密砂岩测井裂缝识别 | Yangwanwan‘s Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yangwanwan‘s Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">天凉好个秋</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://yyfayer.github.io/2023/07/20/%E8%87%B4%E5%AF%86%E7%A0%82%E5%B2%A9%E6%B5%8B%E4%BA%95%E8%A3%82%E7%BC%9D%E8%AF%86%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yangwanwan">
+      <meta itemprop="description" content="Yangwanwan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yangwanwan‘s Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          致密砂岩测井裂缝识别
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-07-20 15:38:30" itemprop="dateCreated datePublished" datetime="2023-07-20T15:38:30+08:00">2023-07-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-21 17:36:12" itemprop="dateModified" datetime="2023-07-21T17:36:12+08:00">2023-07-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/welllog/" itemprop="url" rel="index"><span itemprop="name">welllog</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="致密砂岩储层裂缝识别方法-以新场为例"><a href="#致密砂岩储层裂缝识别方法-以新场为例" class="headerlink" title="致密砂岩储层裂缝识别方法-以新场为例"></a>致密砂岩储层裂缝识别方法-以新场为例</h2><h3 id="1-储层裂缝研究意义"><a href="#1-储层裂缝研究意义" class="headerlink" title="1.储层裂缝研究意义"></a>1.储层裂缝研究意义</h3><p>裂缝不仅是油气的主要储集空间，也是油气运移的有效渗滤通道。特别是对低孔低渗致密性储层来说，当其发育足够的天然裂缝或岩石经压裂改造后可以产生大量裂缝时，这些储层完全可以成为有效的油气储层。</p>
+<p>裂缝发育时油气高产的主要因素：</p>
+<ul>
+<li>裂缝与产能的关系：裂缝网络系统发育时之谜油气藏高产富集的必要条件。对于致密砂岩来说，低孔低渗的基质孔隙基本不具备有效渗滤条件，只有规模性裂缝发育才能有其高产的关键</li>
+<li>裂缝对储层的渗透率有明显的改善作用</li>
+</ul>
+<h3 id="2-致密砂岩储层基本特征"><a href="#2-致密砂岩储层基本特征" class="headerlink" title="2.致密砂岩储层基本特征"></a>2.致密砂岩储层基本特征</h3><ul>
+<li>储层物性特征：致密砂岩储层是一种低孔、低渗的碎屑岩储层，其孔隙度一般小于12%，渗透率低于$0.1*10^-3\mu m^2$</li>
+<li>沉积特征：沉积相主要为曲流河、辫状河、辫状河三角洲、曲流河三角洲及湖泊相；川西须家河组须二段可划分为湖泊和三角洲两个沉积相</li>
+<li>岩石类型：以岩屑砂岩、岩屑石英砂岩、长石岩屑砂岩为主。须二段厚度约530-720m，主要为灰色，浅灰色细-中长石岩屑、石英砂岩、岩屑石英砂岩、长石石英砂岩、岩屑砂岩，夹粉砂岩、深灰色泥岩，砂质泥岩和</li>
+<li>主要成岩作用：压实压溶作用、胶结作用、溶蚀作用、裂缝化作用等</li>
+<li>储集空间类型：原生孔隙、次生孔隙、微裂缝</li>
+<li>孔隙结构特征：缩颈喉道、片状喉道和弯片状喉道、管状喉道</li>
+<li>储层物性演化特征：成岩作用和构造挤压作用使得孔隙度降低，渗透率下降</li>
+</ul>
+<h3 id="3-裂缝类型与主控因素"><a href="#3-裂缝类型与主控因素" class="headerlink" title="3.裂缝类型与主控因素"></a>3.裂缝类型与主控因素</h3><h4 id="3-1裂缝类型"><a href="#3-1裂缝类型" class="headerlink" title="3.1裂缝类型"></a>3.1裂缝类型</h4><ul>
+<li><p>力学性质分类：张裂缝、张剪缝、剪切缝和压剪缝</p>
+</li>
+<li><p>裂缝产状分类：</p>
+<ul>
+<li>走向划分：纵向、横向、斜向（与褶皱发育方向的关系，纵向&#x3D;沿着褶皱发育方向）</li>
+<li>倾角划分：垂直（75-90）、高角度（45-75）、低角度（15-45）、水平缝（0-15）</li>
+</ul>
+</li>
+<li><p>裂缝尺度规模划分：微裂缝（延伸长0.01-0.1m）、小裂缝（0.1-1m）、中裂缝（1-10m）、大裂缝（10-100m）</p>
+</li>
+<li><p>充填程度划分：未充填、半充填、全充填</p>
+</li>
+<li><p>成像测井响应特征划分：高阻缝（白或红亮带正弦曲线，明亮高阻特征）、高导缝（深色（黑色）正弦曲线，高角度幅值大，低角度幅值小）、诱导缝（雁列式、羽状排列，排列整齐，规律性强）、</p>
+</li>
+<li><p>地质成因划分：构造裂缝、非构造裂缝（成岩缝、风化缝、溶蚀缝）</p>
+</li>
+</ul>
+<h4 id="3-2裂缝发育主控因素"><a href="#3-2裂缝发育主控因素" class="headerlink" title="3.2裂缝发育主控因素"></a>3.2裂缝发育主控因素</h4><p>致密砂岩储层裂缝集中发育在岩性致密坚硬的钙质和硅质砂岩中，纯砂岩裂缝发育较弱，以构造裂缝为主，非构造缝相对不发育。主控因素：</p>
+<ul>
+<li>岩石物理和力学性质（裂缝发育程度：钙质砂岩&gt;细砂岩&gt;粉砂岩，裂缝发育：相同地应力作用下，破裂强度小，低泊松比，高杨氏模量岩石脆性大，容易形成裂缝）</li>
+<li>岩石结构：粒径大的岩石裂缝发育程度低于粒径小的。（原因：粒径大，井间结合不牢固，井间缝发育，但裂缝发育密度低）</li>
+<li>构造变形与构造应力</li>
+<li>异常高流体压力</li>
+<li>有机碳含量</li>
+</ul>
+<h3 id="4-裂缝识别方法"><a href="#4-裂缝识别方法" class="headerlink" title="4.裂缝识别方法"></a>4.裂缝识别方法</h3><p>地质法、岩石学法、钻井录井、测井、地震法、井间压力干扰试井法</p>
+<ul>
+<li><p>地质法与岩石学法（利用野外露头、钻井岩心、岩石样品薄片。优点：第一手资料；缺点：不能直接获得裂缝储集性能定量的资料，只能获得岩石物质成分）</p>
+</li>
+<li><p>测井方法：利用测井方法对不同类型储集层裂缝具有不同程度的响应特征。</p>
+<p>FMI不仅能识别裂缝，而且能确定裂缝的延伸方向和产状；长源距声波测井：识别裂缝倾角；电阻率：有小裂缝渗透层；自然伽马能谱：识别高自然伽马的裂缝性地层；除此之外还有双侧向微球形聚焦测井、电磁波传播测井、井眼补偿中子测井、密度测井、声波测井、微电极测井、屏蔽微电极测井、自然电位测井、温度测井、地层倾角测井、核磁共振测井等</p>
+</li>
+<li><p>地震方法:地震相干体技术、地震属性分析技术、储层地震反演技术、构造曲率分析法、横波分裂技术、纵波裂缝检测技术、分方位处理技术</p>
+</li>
+<li><p>钻井录井：发生井涌、井漏、和钻井液外溢现象时，钻石加快、气测异常、泥浆槽面显示活跃、井径明显扩张，</p>
+</li>
+<li><p>井间压力干扰试井法：单井试井与多井干扰试井相结合。</p>
+</li>
+</ul>
+<h3 id="5-测井识别裂缝"><a href="#5-测井识别裂缝" class="headerlink" title="5.测井识别裂缝"></a>5.测井识别裂缝</h3><p>针对特低渗砂岩储层不同类型裂缝识别的难题，建立了一系列利用常规测井资料定量识别裂缝的方法。这些方法的共同点是基于现代测井3大测井系列，9条测井曲线基本原理，根据不同裂缝的测井响应异常机理，对包含裂缝异常信息的常规测井曲线进行<font color = '#ddbbbb'>异常放大、曲线重构、有机筛选、突出裂缝异常特征</font>，以便识别裂缝。</p>
+<p>由于特低渗砂岩储层地质条件复杂，同时常规测井资料本身具有多解性，直接利用常规测井识别裂缝难度非常大，尤其是被充填裂缝在常规测井曲线上响应更为微弱，因此，再应用常规测井资料识别裂缝时，必须以实际的地质特征和裂缝特征为基础，结合岩心资料，分析不同形态和发育程度的裂缝对常规测井曲线形态的响应特征，建立其相应模式。</p>
+<p>一般来说，裂缝发育程度越高，测井响应特征越明显，影响测井响应特征的主要因素是张开度和产状（倾角）。根据不同倾角分类探讨裂缝响应特征：</p>
+<ol>
+<li><p>水平缝:常规测井曲线特征最为明显</p>
+</li>
+<li><p>低角度缝：</p>
+</li>
+<li><p>高角度缝</p>
+</li>
+<li><p>垂直缝</p>
+<table>
+<thead>
+<tr>
+<th align="center">裂缝类型</th>
+<th align="center">井径</th>
+<th align="center">自然伽马</th>
+<th align="center">双侧向</th>
+<th align="center">FMI</th>
+<th align="center">补偿中子</th>
+<th align="center">补偿密度</th>
+<th align="center">声波时差</th>
+<th align="center">地层倾角</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">水平缝</td>
+<td align="center">不规则的变化</td>
+<td align="center">增大</td>
+<td align="center">差异较小或无差异，突然出现尖缝状</td>
+<td align="center">尖缝状</td>
+<td align="center">尖缝状</td>
+<td align="center">尖缝状</td>
+<td align="center">尖缝状</td>
+<td align="center">四个极板出现电导率异常</td>
+</tr>
+<tr>
+<td align="center">低角度</td>
+<td align="center">不平整，出现锯齿状</td>
+<td align="center">增大</td>
+<td align="center">负差异，在高致密背景下，出现明显的低电阻率异常</td>
+<td align="center">降低，成针刺状</td>
+<td align="center">增大</td>
+<td align="center">降低</td>
+<td align="center">增大，产生高值，周波跳跃</td>
+<td align="center">四个极板出现电导率异常</td>
+</tr>
+<tr>
+<td align="center">高角度</td>
+<td align="center">扩径明显</td>
+<td align="center">增大</td>
+<td align="center">正差异，降低</td>
+<td align="center">降低，成刺刀状</td>
+<td align="center">增大</td>
+<td align="center">降低</td>
+<td align="center">没有响应</td>
+<td align="center">对趁机班上出现电导率异常</td>
+</tr>
+<tr>
+<td align="center">垂直缝</td>
+<td align="center">扩径明显</td>
+<td align="center">增大</td>
+<td align="center">正差异，降低，曲线平直</td>
+<td align="center">降低，锯齿状跳跃</td>
+<td align="center">增大</td>
+<td align="center">降低</td>
+<td align="center">无太大变化</td>
+<td align="center">对趁机班上出现电导率异常</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h4 id="5-1裂缝常规测井响应特征"><a href="#5-1裂缝常规测井响应特征" class="headerlink" title="5.1裂缝常规测井响应特征"></a>5.1裂缝常规测井响应特征</h4><h3 id="6-裂缝发育特征"><a href="#6-裂缝发育特征" class="headerlink" title="6.裂缝发育特征"></a>6.裂缝发育特征</h3><p>宇界系统阶、宙代纪世期</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/welllog/" rel="tag"># welllog</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/19/node%E5%9F%BA%E7%A1%80/" rel="prev" title="node基础">
+      <i class="fa fa-chevron-left"></i> node基础
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/07/22/%E5%88%9B%E5%BB%BAnpm%E5%8C%85/" rel="next" title="npm包">
+      npm包 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%B4%E5%AF%86%E7%A0%82%E5%B2%A9%E5%82%A8%E5%B1%82%E8%A3%82%E7%BC%9D%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95-%E4%BB%A5%E6%96%B0%E5%9C%BA%E4%B8%BA%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">致密砂岩储层裂缝识别方法-以新场为例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%82%A8%E5%B1%82%E8%A3%82%E7%BC%9D%E7%A0%94%E7%A9%B6%E6%84%8F%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">1.储层裂缝研究意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%87%B4%E5%AF%86%E7%A0%82%E5%B2%A9%E5%82%A8%E5%B1%82%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="nav-number">1.2.</span> <span class="nav-text">2.致密砂岩储层基本特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A3%82%E7%BC%9D%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%BB%E6%8E%A7%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">3.裂缝类型与主控因素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1%E8%A3%82%E7%BC%9D%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1裂缝类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2%E8%A3%82%E7%BC%9D%E5%8F%91%E8%82%B2%E4%B8%BB%E6%8E%A7%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2裂缝发育主控因素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%A3%82%E7%BC%9D%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">4.裂缝识别方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B5%8B%E4%BA%95%E8%AF%86%E5%88%AB%E8%A3%82%E7%BC%9D"><span class="nav-number">1.5.</span> <span class="nav-text">5.测井识别裂缝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1%E8%A3%82%E7%BC%9D%E5%B8%B8%E8%A7%84%E6%B5%8B%E4%BA%95%E5%93%8D%E5%BA%94%E7%89%B9%E5%BE%81"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1裂缝常规测井响应特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%A3%82%E7%BC%9D%E5%8F%91%E8%82%B2%E7%89%B9%E5%BE%81"><span class="nav-number">1.6.</span> <span class="nav-text">6.裂缝发育特征</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yangwanwan"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Yangwanwan</p>
+  <div class="site-description" itemprop="description">Yangwanwan</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yyfayer" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yyfayer" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yyfayer@163.com" title="E-Mail → mailto:yyfayer@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yangwanwan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
